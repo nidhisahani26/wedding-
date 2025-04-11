@@ -1,10 +1,3 @@
-window.addEventListener('load', function () {
-  const audio = document.querySelector('audio');
-  audio.muted = false;
-  audio.play();
-});
-
-
 
 
 
