@@ -1,14 +1,15 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const audio = document.getElementById("bg-music");
 
-  // autoplay will work only after user interacts anywhere on the page
-  const enableAutoplay = () => {
-    audio.play();
-    document.removeEventListener("click", enableAutoplay);
-  };
+  document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("bg-music");
 
-  document.addEventListener("click", enableAutoplay);
-});
+    // User interaction needed for autoplay in browser
+    const enableAudio = () => {
+      audio.play().catch((e) => console.log("Autoplay failed:", e));
+      document.removeEventListener("click", enableAudio);
+    };
+
+    document.addEventListener("click", enableAudio);
+  });
 
 document.querySelector('.map-container iframe').addEventListener('click', function() {
   window.open('https://www.google.com/maps?q=St+Peter\'s+Church,+New+York', '_blank');
